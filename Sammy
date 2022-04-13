@@ -1,0 +1,79 @@
+
+import java.util.*;
+import java.util.Scanner;
+import java.util.Collections;
+import java.io.Console;
+
+public class Main  {
+
+    public static void main(String[] args) {
+
+        getcontractNumber();
+
+    }
+
+    public static void getcontractNumber() {
+        Scanner myObj = new Scanner(System.in);
+        while (true){
+
+            System.out.println("Enter contract number: ");
+            String contractNum = myObj.nextLine();
+            try{
+                if(contractNum.length() == 4){
+               getMinutes();
+                    break;
+                }
+                else {
+                    System.out.println("try again");
+                }
+            }   catch (Exception e) {
+                System.err.println("Not a valid input. Error :" + e.getMessage());
+                continue;
+            }
+     
+    }
+  }
+    public static void getMinutes() {
+        int minutes;
+        final int LOW_MIN = 60;
+        final int HIGH_MIN = 7200;
+    Scanner myObj = new Scanner(System.in);
+      while(true){
+        System.out.print("Enter minutes >> ");
+        minutes = myObj.nextInt();
+        try{
+          if(minutes < LOW_MIN || minutes > HIGH_MIN){
+             System.out.println("Time must be between " + LOW_MIN + " minutes and " + HIGH_MIN + " minutes");
+          } else{
+        getType();
+            break;
+          }
+          
+        }catch (Exception e) {
+                System.err.println("Not a valid input. Error :" + e.getMessage());
+                continue;
+            }
+        
+      }
+
+  }
+
+ public static void getType() {
+
+final String[] equipNameList = { "personal watercraftski", "pontoon boat", "rowboat", "canoe", "kayak","beachchair", "umbrella", "other" };
+        int type;
+        Scanner myObj = new Scanner(System.in);
+        while (true) {
+            System.out.println("Equipment types:");
+            type = myObj.nextInt();
+
+            if (type <= 8) {
+                for (int x = 0; x < equipNameList.length; x++) {
+                }
+              System.out.println(equipNameList[type]);
+            }
+        }
+    }
+
+   
+}
